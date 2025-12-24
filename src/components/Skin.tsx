@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ReactSkinview3d } from "react-skinview3d";
 import type { FC } from "react";
+import './Skin.css';
 
 interface SkinProps {
     newLayer: (string | null);
@@ -9,6 +10,8 @@ interface SkinProps {
 const Skin:FC<SkinProps> = ({ newLayer }) => {
 
     const [skin, setSkin] = useState("../public/default.png");
+    const inputRef = useRef(null);
+    const downloadRef = useRef(null);
 
     useEffect(() => {
         updateSkin();
@@ -36,15 +39,35 @@ const Skin:FC<SkinProps> = ({ newLayer }) => {
                 setSkin(canvas.toDataURL());
             };
         };
+    };
+
+    const importFile = () => {
+        inputRef.current.click();
+    };
+
+    const uploadSkin = (e: any) => {
+        console.log(e.target.files);
+        setSkin(URL.createObjectURL(e.target.files[0]));
+    };
+
+    const downloadSkin = () => {
+        downloadRef.current.href = skin;
+        downloadRef.current.download = 'skin.png';
+        downloadRef.current.click();
     }
 
     return(
-        <div style={{ width: '500px', height: '500px' }}>
+        <div className="skin">
               <ReactSkinview3d
                 skinUrl={skin}
                 height={500}
                 width={500}
               />
+              <a ref={downloadRef} className="download-a"></a>
+              <button className="upload-but" onClick={() => importFile()}>Upload your skin
+                <input type="file" onChange={(e) => uploadSkin(e)} ref={inputRef}/>
+              </button>
+              <button className="download-but" onClick={() => downloadSkin()}>Download</button>
         </div>
     );
 }

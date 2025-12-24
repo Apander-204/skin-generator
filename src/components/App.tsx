@@ -12,9 +12,11 @@ function App() {
   return (
     <div>
       <Header />
-      <Navbar setMenu={setMenu}/>
-      <Choice menu={menu} setNewLayer={setNewLayer}/>
-      <Skin newLayer={newLayer} />
+      <div className="center-app">
+        <Navbar setMenu={setMenu}/>
+        <Choice menu={menu} setNewLayer={setNewLayer}/>
+        <Skin newLayer={newLayer} />
+      </div>
     </div>
   )
 }

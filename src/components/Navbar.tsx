@@ -1,4 +1,6 @@
 import type { FC } from "react";
+import './Navbar.css';
+import OpenMenu from "../icons/open_menu";
 
 interface NavbarProps {
     setMenu: (value: string) => void;
@@ -7,26 +9,32 @@ interface NavbarProps {
 const Navbar:FC<NavbarProps> = ({ setMenu }) => {
 
     return(
-        <>
-            <div>
-                <button onClick={() => setMenu("Base")}>Base</button>
+        <div className="menu">
+            <div className="menu-item" onClick={() => setMenu("Base")}>
+                <p>Base</p>
+                <OpenMenu />
             </div>
-            <div>
-                <button onClick={() => setMenu("Hat")}>Hat</button>
+            <div className="menu-item" onClick={() => setMenu("Hat")}>
+                <p>Hat</p>
+                <OpenMenu />
             </div>
-            <div>
-                <button onClick={() => setMenu("Hair")}>Hair</button>
+            <div className="menu-item" onClick={() => setMenu("Hair")}>
+                <p>Hair</p>
+                <OpenMenu />
             </div>
-            <div>
-                <button onClick={() => setMenu("Body")}>Body</button>
+            <div className="menu-item" onClick={() => setMenu("Body")}>
+                <p>Body</p>
+                <OpenMenu />
             </div>
-            <div>
-                <button onClick={() => setMenu("Pants")}>Pants</button>
+            <div className="menu-item" onClick={() => setMenu("Pants")}>
+                <p>Pants</p>
+                <OpenMenu />
             </div>
-            <div>
-                <button onClick={() => setMenu("Boots")}>Boots</button>
+            <div className="menu-item" onClick={() => setMenu("Boots")}>
+                <p>Boots</p>
+                <OpenMenu />
             </div>
-        </>
+        </div>
     );
 }
 

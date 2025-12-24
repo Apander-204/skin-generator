@@ -1,0 +1,35 @@
+.menu {
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    min-width: 208px;
+    background-color: rgba(247, 242, 250, 1);
+    height: 660px;
+    align-items: center;
+    border: 3px solid #585858;
+    outline: 3px solid black;
+}
+
+.menu-item {
+    width: 70%;
+    height: 48px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 10px;
+    cursor: pointer;
+    background-color: #d1d1d1;
+    border: 3px solid #585858;
+    outline: 3px solid black;
+}
+
+.menu-item:first-child {
+    margin-top: 15px;
+}
+
+.menu-item p {
+    font-size: 20px;
+    color: #2e2e2e;
+}
