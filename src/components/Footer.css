@@ -1,0 +1,19 @@
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(247, 242, 250, 1);
+    border-top: 3px solid #585858;
+    outline: 3px solid black;
+    margin-top: auto;
+    width: 100vw;
+    height: 66px;
+}
+
+.left-footer-text {
+    padding-left: 20px;
+}
+
+.right-footer-text {
+    padding-right: 20px;
+}

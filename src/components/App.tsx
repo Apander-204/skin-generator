@@ -2,7 +2,9 @@ import Header from "./Header";
 import Navbar from "./Navbar";
 import Choice from './Choice';
 import Skin from "./Skin";
+import Footer from "./Footer";
 import { useState } from "react";
+import './App.css';
 
 function App() {
 
@@ -17,6 +19,7 @@ function App() {
         <Choice menu={menu} setNewLayer={setNewLayer}/>
         <Skin newLayer={newLayer} />
       </div>
+      <Footer />
     </div>
   )
 }
