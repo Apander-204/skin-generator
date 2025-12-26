@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { ReactSkinview3d } from "react-skinview3d";
-import type { FC } from "react";
+import type { ChangeEvent, FC } from "react";
 import './Skin.css';
 
 interface SkinProps {
@@ -9,9 +9,9 @@ interface SkinProps {
 
 const Skin:FC<SkinProps> = ({ newLayer }) => {
 
-    const [skin, setSkin] = useState("../public/default.png");
-    const inputRef = useRef(null);
-    const downloadRef = useRef(null);
+    const [skin, setSkin] = useState<string>("/default.png");
+    const inputRef = useRef<null | HTMLInputElement>(null);
+    const downloadRef = useRef<null | HTMLAnchorElement>(null);
 
     useEffect(() => {
         updateSkin();
@@ -42,18 +42,23 @@ const Skin:FC<SkinProps> = ({ newLayer }) => {
     };
 
     const importFile = () => {
+        if (inputRef.current == null) return;
         inputRef.current.click();
     };
 
-    const uploadSkin = (e: any) => {
+    const uploadSkin = (e:ChangeEvent<HTMLInputElement>):void => {
+
+        if (!e.target || !e.target.files) return;
         console.log(e.target.files);
         setSkin(URL.createObjectURL(e.target.files[0]));
     };
 
-    const downloadSkin = () => {
+    const downloadSkin = (): void => {
+        if (downloadRef.current == null) return;
+
         downloadRef.current.href = skin;
         downloadRef.current.download = 'skin.png';
-        downloadRef.current.click();
+        downloadRef.current?.click();
     }
 
     return(
@@ -64,10 +69,10 @@ const Skin:FC<SkinProps> = ({ newLayer }) => {
                 width={500}
               />
               <a ref={downloadRef} className="download-a"></a>
-              <button className="upload-but" onClick={() => importFile()}>Upload your skin
+              <button className="upload-but" onClick={importFile}>Upload your skin
                 <input type="file" onChange={(e) => uploadSkin(e)} ref={inputRef}/>
               </button>
-              <button className="download-but" onClick={() => downloadSkin()}>Download</button>
+              <button className="download-but" onClick={downloadSkin}>Download</button>
         </div>
     );
 }
