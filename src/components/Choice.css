@@ -20,3 +20,11 @@
     border: 3px solid #585858;
     outline: 3px solid black;
 }
+
+.active-choice-item {
+    width: 200px;
+    height: 200px;
+    background-color: rgb(138, 138, 138);
+    border: 10px solid #585858;
+    outline: 3px solid black;
+}

@@ -7,38 +7,54 @@ interface SkinProps {
     newLayer: (string | null);
 }
 
-const Skin:FC<SkinProps> = ({ newLayer }) => {
+const Skin:FC<SkinProps> = ({ baseLayer, hairLayer, eyesLayer, hatLayer, bodyLayer, pantsLayer, bootsLayer }) => {
 
-    const [skin, setSkin] = useState<string>("/default.png");
+    const [skin, setSkin] = useState<string>("/base/1.png");
     const inputRef = useRef<null | HTMLInputElement>(null);
     const downloadRef = useRef<null | HTMLAnchorElement>(null);
 
     useEffect(() => {
         updateSkin();
-    }, [newLayer]);
+    }, [baseLayer, hairLayer, eyesLayer, hatLayer, bodyLayer, pantsLayer, bootsLayer]);
 
-    const updateSkin = () => {
+    const updateSkin = async () => {
         const canvas = document.createElement('canvas');
         canvas.width = 64;
         canvas.height = 64;
         const context = canvas.getContext('2d');
 
         if(!context) return;
-        if(!newLayer) return;
+        
+        const drawImage = (path) => {
+            return new Promise((resolve, reject) => {
+                const img = new Image();
+                img.src = path;
+                img.onload = () => resolve(img);
+                img.onerror = reject;
+            });
+        }
 
-        const baseImg = new Image();
-        baseImg.src = skin;
+        context.clearRect(0, 0, canvas.width, canvas.height);
 
-        baseImg.onload = () => {
-            context.drawImage(baseImg, 0, 0);
-            const layerImg = new Image();
-            layerImg.src = newLayer;
+        const layers = [
+            baseLayer,
+            eyesLayer,
+            hairLayer,
+            hatLayer,
+            bodyLayer,
+            pantsLayer,
+            bootsLayer,
+        ];
 
-            layerImg.onload = () => {
-                context.drawImage(layerImg, 0, 0);
-                setSkin(canvas.toDataURL());
-            };
-        };
+        for (const layer of layers) {
+            if (layer) {
+                const img = await drawImage(layer);
+                context.drawImage(img, 0, 0);
+            }
+        }
+
+        setSkin(canvas.toDataURL());
+
     };
 
     const importFile = () => {
@@ -46,10 +62,8 @@ const Skin:FC<SkinProps> = ({ newLayer }) => {
         inputRef.current.click();
     };
 
-    const uploadSkin = (e:ChangeEvent<HTMLInputElement>):void => {
-
+    const uploadSkin = (e:ChangeEvent<HTMLInputElement>): void => {
         if (!e.target || !e.target.files) return;
-        console.log(e.target.files);
         setSkin(URL.createObjectURL(e.target.files[0]));
     };
 

@@ -14,12 +14,16 @@ const Navbar:FC<NavbarProps> = ({ setMenu }) => {
                 <p>Base</p>
                 <OpenMenu />
             </div>
-            <div className="menu-item" onClick={() => setMenu("Hat")}>
-                <p>Hat</p>
+            <div className="menu-item" onClick={() => setMenu("Eyes")}>
+                <p>Eyes</p>
                 <OpenMenu />
             </div>
             <div className="menu-item" onClick={() => setMenu("Hair")}>
                 <p>Hair</p>
+                <OpenMenu />
+            </div>
+            <div className="menu-item" onClick={() => setMenu("Hat")}>
+                <p>Hat</p>
                 <OpenMenu />
             </div>
             <div className="menu-item" onClick={() => setMenu("Body")}>
