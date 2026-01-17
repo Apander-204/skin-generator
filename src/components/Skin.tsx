@@ -4,7 +4,13 @@ import type { ChangeEvent, FC } from "react";
 import './Skin.css';
 
 interface SkinProps {
-    newLayer: (string | null);
+    baseLayer: (string | null);
+    hairLayer: (string | null);
+    eyesLayer: (string | null);
+    hatLayer: (string | null);
+    bodyLayer: (string | null);
+    pantsLayer: (string | null);
+    bootsLayer: (string | null);
 }
 
 const Skin:FC<SkinProps> = ({ baseLayer, hairLayer, eyesLayer, hatLayer, bodyLayer, pantsLayer, bootsLayer }) => {
@@ -25,7 +31,7 @@ const Skin:FC<SkinProps> = ({ baseLayer, hairLayer, eyesLayer, hatLayer, bodyLay
 
         if(!context) return;
         
-        const drawImage = (path) => {
+        const drawImage: (path: string) => Promise<HTMLImageElement> = (path: string) => {
             return new Promise((resolve, reject) => {
                 const img = new Image();
                 img.src = path;

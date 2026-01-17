@@ -3,7 +3,21 @@ import './Choice.css';
 
 interface ChoiceProps {
     menu: string;
-    setNewLayer: (value: string | null) => void;
+    setBaseLayer: (value: string | null) => void;
+    setHairLayer: (value: string | null) => void;
+    setEyesLayer: (value: string | null) => void;
+    setHatLayer: (value: string | null) => void;
+    setBodyLayer: (value: string | null) => void;
+    setPantsLayer: (value: string | null) => void;
+    setBootsLayer: (value: string | null) => void;
+
+    baseLayer: (string | null);
+    hairLayer: (string | null);
+    eyesLayer: (string | null);
+    hatLayer: (string | null);
+    bodyLayer: (string | null);
+    pantsLayer: (string | null);
+    bootsLayer: (string | null);
 }
 
 const Choice:FC<ChoiceProps> = ({ menu, setBaseLayer, setHairLayer, setEyesLayer, setHatLayer, setBodyLayer, setPantsLayer, setBootsLayer,
@@ -144,7 +158,7 @@ const Choice:FC<ChoiceProps> = ({ menu, setBaseLayer, setHairLayer, setEyesLayer
         }
     }
 
-    const checkActiveLayer = (skin) => {
+    const checkActiveLayer = (skin: Skins) => {
         if(skin.path === baseLayer || skin.path === hairLayer || skin.path === eyesLayer || skin.path === hatLayer || skin.path === bodyLayer || skin.path === pantsLayer || skin.path === bootsLayer) return "active-choice-item";
         else return "choice-item";
     }
