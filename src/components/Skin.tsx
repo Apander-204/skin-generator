@@ -15,7 +15,7 @@ interface SkinProps {
 
 const Skin:FC<SkinProps> = ({ baseLayer, hairLayer, eyesLayer, hatLayer, bodyLayer, pantsLayer, bootsLayer }) => {
 
-    const [skin, setSkin] = useState<string>("/base/1.png");
+    const [skin, setSkin] = useState<string>("/skin-generator/base/1.png");
     const inputRef = useRef<null | HTMLInputElement>(null);
     const downloadRef = useRef<null | HTMLAnchorElement>(null);
 
