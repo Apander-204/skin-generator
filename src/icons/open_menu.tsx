@@ -1,6 +1,6 @@
-export default function OpenMenu() {
+export default function OpenMenu( {className = "open-menu-icon"} ) {
     return(
-        <svg width="5" height="9" viewBox="0 0 5 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg className={className} width="10" height="18" viewBox="0 0 5 9" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M0 8.33333V0L4.16667 4.16667L0 8.33333Z" fill="#49454F"/>
         </svg>
     );

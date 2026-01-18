@@ -22,7 +22,7 @@ function App() {
     <div>
       <Header />
       <div className="center-app">
-        <Navbar setMenu={setMenu}/>
+        <Navbar setMenu={setMenu} menu={menu} />
         <Choice 
           menu={menu} setBaseLayer={setBaseLayer} setHairLayer={setHairLayer} setEyesLayer={setEyesLayer} setHatLayer={setHatLayer} setBodyLayer={setBodyLayer} setPantsLayer={setPantsLayer} setBootsLayer={setBootsLayer} 
           baseLayer={baseLayer} hairLayer={hairLayer} eyesLayer={eyesLayer} hatLayer={hatLayer} bodyLayer={bodyLayer} pantsLayer={pantsLayer} bootsLayer={bootsLayer}

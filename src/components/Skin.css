@@ -11,6 +11,7 @@
 }
 
 .upload-but, .download-but {
+    transition: scale 0.1s linear;
     width: 300px;
     min-height: 65px;
     background-color: #888888;
@@ -23,6 +24,14 @@
 
 .upload-but {
     background-color: #2974ff;
+}
+
+.upload-but:hover, .download-but:hover {
+    scale: 1.05;
+}
+
+.upload-but:active, .download-but:active {
+    scale: 0.95;
 }
 
 .download-but {

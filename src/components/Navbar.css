@@ -11,7 +11,8 @@
     outline: 3px solid black;
 }
 
-.menu-item {
+.menu-item, .active-menu-item {
+    transition: scale 0.1s, border 0.1s linear;
     width: 70%;
     height: 48px;
     display: flex;
@@ -25,11 +26,23 @@
     outline: 3px solid black;
 }
 
-.menu-item:first-child {
+.active-menu-item {
+    border: 5px solid #585858;
+}
+
+.menu-item:hover, .active-menu-item:hover {
+    scale: 1.05;
+}
+
+.menu-item:active, .active-menu-item:active {
+    scale: 0.95;
+}
+
+.menu-item:first-child, .active-menu-item:first-child {
     margin-top: 15px;
 }
 
-.menu-item p {
+.menu-item p, .active-menu-item p {
     font-size: 20px;
     color: #2e2e2e;
 }
