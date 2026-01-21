@@ -1,8 +1,9 @@
-# Skin Generator
+<h1 align="center" >Skin Generator</h1>
 
-In dev process...
+<h3 align="center" ><b>Hello, this website will allow you to create your own Minecraft skin using ready-made components</b></h3>
+<h3 align="center" ><b>Demo Link: https://apander-204.github.io/skin-generator/</b></h3>
 
-**Hello, this website will allow you to create your own Minecraft skin using ready-made components**
+<img width="1919" height="916" alt="image" src="https://github.com/user-attachments/assets/e9ea5364-0fb1-4fe5-9596-f79c855a617c" />
 
 ## ⚙️ Technology and skills
 ![JavaScript](https://img.shields.io/badge/-JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
